@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Movie Catalog</title>
+    <link rel="stylesheet" href="/edit.css">
+</head>
+<body>
+    <div class="post-frame">
+        <h1>Edit Movie Description</h1>
+    
+        <h3 class="titlename">Name: <%= post.title %></h3>
+        <h3 class="dir_name">Director Name: <%= post.director %></h3>
+        <form method="post" action="/posts/<%= post.id %>?_method=PATCH">
+            <h4><textarea name="description" class="description" rows="7" cols="30"><%= post.description %></textarea></h4>
+            <button>Submit</button>
+        </form>
+    </div>
+</body>
+</html>

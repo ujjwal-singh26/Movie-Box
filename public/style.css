@@ -1,0 +1,73 @@
+body {
+    background-color: #f0f8ff;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+  }
+  
+  .post-frame {
+    background-color: #fffbf2;
+    border: 1px solid #ffcc80;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px; 
+    margin: 0 auto; 
+  }
+  
+  .titlename {
+    color: #ff6347;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    color: #2e8b57;
+    line-height: 1.6;
+  }
+  
+  .heading {
+    width: 50%;
+    border: 1px solid black;
+    background-color: rgb(184, 138, 131);
+    color: #333;
+    font-size: 32px; 
+    margin-bottom: 15px;
+    font-size: 40px; 
+    font-weight: bold; 
+    font-family: Arial, sans-serif; 
+    text-align: center; 
+  }
+  
+  .poster {
+    height: 300px; 
+    width: 100%; 
+  }
+  
+  .movie-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    grid-gap: 40px; 
+  }
+
+  button {
+    padding: 13px 35px;
+    border-radius: 8px;
+  }
+
+  .fixbtn{
+     position: absolute; 
+     top: 20px;  
+     right: 20px;  
+     padding: 10px 28px; 
+  }
+  
+
+  .center {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    width: 100%; 
+  }
+
+  .linkbtn {
+    text-decoration: none;
+  }
