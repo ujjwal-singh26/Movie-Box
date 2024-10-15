@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 8080; // Use environment variable for port
+const port = process.env.PORT || 8080;
 const path = require("path");
 const { v4: uuidv4 } = require('uuid');
 const methodOverride = require("method-override");
@@ -230,8 +230,6 @@ let posts = [
 
 // ----------------------------------------------------------------------------------------------------------------------------------
 
-
-// Update all redirects and renders to use relative URLs
 app.get("/posts", (req, res) => {
     res.render("index.ejs", { posts });
 });
@@ -241,11 +239,25 @@ app.get("/posts/new", (req, res) => {
 });
 
 app.post("/posts", (req, res) => {
-    let { titlename, dir_name, description, poster, release, genere, ratings } = req.body;
-    let id = uuidv4();
-    posts.push({ id, title: titlename, director: dir_name, description, poster, release, genere, ratings });
-    res.redirect("/posts"); // This is already correct
+    const { title, director, poster, description, release, genre, ratings } = req.body;
+
+    const newMovie = {
+        id: Date.now().toString(), 
+        title,
+        director,
+        poster,
+        description,
+        releaseYear: release, 
+        genre,
+        rating: ratings 
+    };
+
+    posts.push(newMovie); 
+
+    res.redirect("/posts"); 
 });
+
+
 
 app.get("/posts/:id", (req, res) => {
     let { id } = req.params;
@@ -258,9 +270,17 @@ app.get("/posts/:id", (req, res) => {
 
 app.patch("/posts/:id", (req, res) => {
     let { id } = req.params;
-    let newContent = req.body.content;
+    let { description, release, genre, ratings, poster } = req.body;
     let post = posts.find((p) => id === p.id);
-    post.content = newContent;
+    
+    if (post) {
+        post.description = description;
+        post.releaseYear = release; 
+        post.genre = genre; 
+        post.rating = ratings; 
+        post.poster = poster; 
+    }
+
     res.redirect("/posts");
 });
 
@@ -276,7 +296,6 @@ app.delete("/posts/:id", (req, res) => {
     res.redirect("/posts");
 });
 
-// Use the port from environment variable
 app.listen(port, () => {
     console.log(`Listening to port: ${port}`);
 });

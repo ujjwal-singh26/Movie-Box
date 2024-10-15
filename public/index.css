@@ -111,3 +111,21 @@ button {
 .fixbtn:hover {
     background-color: #4cae4c; 
 }
+
+.fixbtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;      
+    width: 150px;      
+    padding: 10px 20px; 
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    text-align: center; 
+    z-index: 1000;      
+}
+
+.fixbtn:hover {
+    background-color: #4cae4c;
+}
