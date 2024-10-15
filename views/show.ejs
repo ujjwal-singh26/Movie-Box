@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Shows New Movie </title>
+  <title>Show Movie Details</title>
   <link rel="stylesheet" href="/show.css">
 </head>
 
@@ -15,8 +15,8 @@
       <img class="poster" src="<%= post.poster %>" alt="Movie Poster">
       <h3 class="dir_name">Director Name: <%= post.director %></h3>
       <h3 class="release">Release Year: <%= post.releaseYear %></h3>
-      <h3 class="genere">Genere: <%= post.genre %></h3>
-      <h3 class="ratings">Genere: <%= post.rating %></h3>
+      <h3 class="genre">Genre: <%= post.genre %></h3>
+      <h3 class="ratings">Rating: <%= post.rating %></h3>
       <p class="description"><%= post.description %></p>
     </div>
     <button><a href="/posts">Back to Movie List</a></button>

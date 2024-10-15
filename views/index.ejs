@@ -11,22 +11,26 @@
 <body>
   <center>
     <h1 class="heading">Movie Box</h1>
-    <button class="fixbtn"><a href="http://localhost:8080/posts/new">Add New Movies</a></button>
+    <button class="fixbtn"><a href="/posts/new">Add New Movies</a></button>
   </center>
   <center>
   <div class="movie-container">
-    <% for (let post of posts) { %>
-      <div class="post-frame">
-        <img src="<%= post.poster %>" alt="Movie Poster" class="poster">
-        <h2 class="titlename">Name: <%= post.title %></h2>
-        <p class="description"><%= post.description %></p>
-        <button class="linkbtn"><a href="http://localhost:8080/posts/<%= post.id %>">About Movie</a></button>
-        <button class="linkbtn edit"><a href="http://localhost:8080/posts/<%= post.id %>/edit">Edit Movie Description</a></button>
-        <br><br>
-        <form method="post" action="/posts/<%= post.id %>?_method=DELETE">
-          <button class="delete-btn">Delete Movie</button>
-        </form>
-      </div>
+    <% if (posts.length === 0) { %>
+      <p>No movies available. Please add some!</p>
+    <% } else { %>
+      <% for (let post of posts) { %>
+        <div class="post-frame">
+          <img src="<%= post.poster %>" alt="Movie Poster" class="poster">
+          <h2 class="titlename">Name: <%= post.title %></h2>
+          <p class="description"><%= post.description %></p>
+          <button class="linkbtn"><a href="/posts/<%= post.id %>">About Movie</a></button>
+          <button class="linkbtn edit"><a href="/posts/<%= post.id %>/edit">Edit Movie Description</a></button>
+          <br><br>
+          <form method="post" action="/posts/<%= post.id %>?_method=DELETE">
+            <button class="delete-btn">Delete Movie</button>
+          </form>
+        </div>
+      <% } %>
     <% } %>
   </div>
 </center>

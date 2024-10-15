@@ -9,18 +9,17 @@
 </head>
 
 <body>
-    <form action="/posts" method="post">
-        <h1>Add New Movie</h1>
-        <input name="titlename" placeholder="Enter Movie Title" required><br><br>
-        <input name="dir_name" placeholder="Enter Director Name" required><br><br>
-
-        <input name="poster" id="<%= posts.poster %>" type="text" placeholder="Enter Movie Poster URL" required><br><br>
-
-        <textarea name="description" placeholder="Write the Description about Movie!" rows="5" required></textarea><br>
-        <button type="submit">Submit</button>
-    </form>
-    <script src="style.js"></script>
+    <center>
+        <form action="/posts" method="post">
+            <h1>Add New Movie</h1>
+            <input name="title" placeholder="Enter Movie Title" required><br><br>
+            <input name="director" placeholder="Enter Director Name" required><br><br>
+            <input name="poster" type="text" placeholder="Enter Movie Poster URL" required><br><br>
+            <textarea name="description" placeholder="Write the Description about Movie!" rows="5" required></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+    </center>
+    <script src="/style.js"></script>
 </body>
 
 </html>
-
